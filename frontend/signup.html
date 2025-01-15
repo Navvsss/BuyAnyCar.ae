@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - BuyAnyCar.ae</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BUYANYCAR.ae</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buy.html">Buy Cars</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-box">
+            <h2>Sign Up</h2>
+            <form id="signup-form">
+                <input type="text" id="signup-name" placeholder="Name" required>
+                <input type="email" id="signup-email" placeholder="Email" required>
+                <input type="password" id="signup-password" placeholder="Password" required>
+                <button type="submit" id="signup-btn">Sign Up</button>
+            </form>
+            <p id="signup-error" style="color: red; display: none;">Please fill in all fields.</p>
+            <p>Already have an account? <a href="login.html">Log In</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Car Buy and Sell</p>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+    // Sign Up Button Event Listener
+    document.getElementById('signup-btn').addEventListener('click', async (event) => {
+        event.preventDefault(); // Prevent form submission
+        const name = document.getElementById('signup-name').value;
+        const email = document.getElementById('signup-email').value;
+        const password = document.getElementById('signup-password').value;
+
+        if (name && email && password) {
+            try {
+                const response = await fetch('http://localhost:4000/api/user/signup', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ name, email, password }),
+                });
+
+                const data = await response.json();
+                if (response.ok) {
+                    alert('Sign Up Successful! Redirecting to login page...');
+                    window.location.href = 'login.html';
+                } else {
+                    const errorMessage = data.message || 'An unknown error occurred.';
+                    alert(`Error: ${errorMessage}`);
+                }
+            } catch (error) {
+                console.error('Error:', error);
+                alert('An error occurred while signing up. Please try again.');
+            }
+        } else {
+            alert('Please fill in all fields.');
+        }
+    });
+});
+    </script>
+</body>
+</html>

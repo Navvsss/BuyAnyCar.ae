@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Log In - BuyAnyCar.ae</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>BUYANYCAR.ae</h1>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="buy.html">Buy Cars</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="form-box">
+            <h2>Log In</h2>
+            <form id="login-form">
+                <input type="email" id="login-email" placeholder="Enter your email" required>
+                <input type="password" id="login-password" placeholder="Enter your password" required>
+                <button type="submit" id="login-btn">Login</button>
+                <p id="login-error" style="color: red; display: none;">Invalid email or password.</p>
+            </form>
+            <p>Don't have an account? <a href="signup.html">Sign Up</a></p>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Car Buy and Sell</p>
+    </footer>
+
+    <script>
+        document.getElementById('login-form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent the default form submission
+
+    const email = document.getElementById('login-email').value.trim();
+    const password = document.getElementById('login-password').value.trim();
+    const error = document.getElementById('login-error');
+
+    if (email && password) {
+        try {
+            const response = await fetch('http://localhost:4000/api/user/login', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ email, password }),
+            });
+
+            const data = await response.json(); // Move this line here
+
+            if (response.ok) {
+                alert(`Welcome back, ${data.user.name}!`);
+                error.style.display = 'none';
+                localStorage.setItem('user', JSON.stringify(data));
+                
+                // Redirect to the home page
+                window.location.href = '../index.html'; // Redirect to index.html
+            } else {
+                error.textContent = data.message || 'Invalid email or password.';
+                error.style.display = 'block';
+            }
+        } catch (err) {
+            console.error('Login error:', err); // Log the error for debugging
+            error.textContent = 'An error occurred. Please try again later.';
+            error.style.display = 'block';
+        }
+    } else {
+        error.textContent = 'All fields are required!';
+        error.style.display = 'block';
+    }
+});
+    </script>
+</body>
+</html>

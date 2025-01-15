@@ -1,0 +1,311 @@
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e3e3e3;
+    line-height: 1.6; 
+}
+
+header {
+ background-color: rgba(109, 167, 242, 0.9);
+    color: #000000;
+    text-align: center;
+    padding: 20px;
+}
+nav ul {
+    list-style: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px; 
+}
+
+nav ul li a {
+    background-color: rgb(0, 116, 139);
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 20px; 
+    border-radius: 5px; 
+    padding: 8px 12px; 
+
+}
+
+#about {
+    padding: 60px; 
+    color: black;
+    text-align: center; 
+}
+
+#about h2 {
+    background-color: #ffffff;
+    margin-top: -25px;
+    font-size: 36px;
+    color: #000000;
+}
+.about-container {
+    display: flex; 
+    justify-content: space-between; 
+    margin-top: 20px; 
+}
+.about-container p {
+    font-size: 20px;
+}
+.about-content, .about2-content {
+    flex: 1; 
+    margin: 0 10px; 
+    padding: 20px; 
+    border-radius: 10px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+}
+
+.about2-content {
+    text-align: left; 
+}
+
+.about2-content h6{
+    font-size: 23px;
+    margin-top: -5px;
+}
+
+#testimonials {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 75px;
+}
+
+.testimonial {
+    margin: 10px 0;
+    font-style: italic;
+}
+
+#faq {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 75px;
+}
+
+#faq ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+#faq li {
+    margin: 10px 0;
+}
+
+footer {
+    text-align: center;
+    padding: 20px 0; 
+    background-color: rgba(66, 66, 66, 0.9);
+    color: #ffffff;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+/* Button Styles */
+.login-btn, .signup-btn {
+    background-color: #00c957; 
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 18px; 
+    transition: background 0.3s, transform 0.2s;
+    margin: 5px; 
+}
+
+.login-btn:hover, .signup-btn:hover {
+    background-color: #006e90; 
+    transform: scale(1.05); 
+}
+
+.login-btn:active, .signup-btn:active {
+    transform: scale(0.95); 
+}
+
+
+#login-btn {
+    background-color: #3aa5de; 
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease; 
+}
+
+
+#login-btn:hover {
+    background-color: #45a049; 
+}
+
+#signup-btn {
+    background-color: #3aa5de; 
+    color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer; 
+    font-size: 16px; 
+    transition: background-color 0.3s ease; 
+}
+
+#signup-btn:hover {
+    background-color: #45a049; 
+}
+
+
+.form-box {
+    background: #ffffff;
+    padding: 30px; 
+    border-radius: 10px; 
+    width: 400px; 
+    margin: 75px auto;  
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+.form-box h2 {
+    margin-bottom: 20px; 
+}
+
+label {
+    display: block; 
+    margin-bottom: 5px; 
+    font-weight: bold; 
+}
+
+input[type="email"], input[type="password"], [type=text]{
+    width: 100%; 
+    padding: 10px; 
+    margin-bottom: 15px; 
+    border: 1px solid #00ddff; 
+    border-radius: 5px; 
+    box-sizing: border-box; 
+}
+
+
+.contact-btn {
+    background-color: #007bff; 
+    color: white; 
+    border: none;
+    padding: 10px 20px; 
+    border-radius: 5px; 
+    cursor: pointer;
+    font-size: 16px; 
+    margin-top: 10px; 
+    transition: background 0.3s; 
+}
+
+.contact-btn:hover {
+    background-color: #0056b3;
+}
+
+.phone-number {
+    display: none;
+    margin-top: 10px;
+    font-weight: bold;
+    color: #333;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+p {
+    margin: 10px 0;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.car-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px; 
+}
+
+.car-item {
+    background: #ffffff; 
+    border-radius: 10px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+    margin: 15px; 
+    padding: 20px;
+    text-align: center;
+    width: calc(30% - 30px); 
+    transition: transform 0.3s; 
+}
+
+.car-item:hover {
+    transform: scale(1.02); 
+}
+
+.car-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; 
+}
+@media (max-width: 768px) {
+    nav ul li {
+        display: block;
+        margin: 10px 0; 
+    }
+
+    .about-container {
+        flex-direction: column; 
+    }
+
+    .about-content, .about2-content {
+        margin: 10px 0; 
+        width: 100%; 
+    }
+
+    #testimonials, #faq {
+        margin: 20px 10px; 
+    }
+
+    .car-item {
+        width: calc(100% - 30px); 
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        font-size: 14px; 
+    }
+
+    header h1 {
+        font-size: 24px; 
+    }
+
+    nav ul li a {
+        font-size: 16px; 
+        padding: 8px; 
+    }
+
+    .about-container p {
+        font-size: 16px; 
+    }
+
+    .contact-btn, .login-btn, .signup-btn {
+        width: 100%; 
+        padding: 10px; 
+    }
+
+    .car-item {
+        padding: 15px; 
+    }
+} 
